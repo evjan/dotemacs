@@ -25,3 +25,8 @@
 ;; enable auto-complete-mode all the time
 (require 'auto-complete)
 (global-auto-complete-mode t)
+
+;; find file in project, like Command-T in TextMate
+(require 'find-file-in-project)
+(global-set-key (kbd "C-x p") 'find-file-in-project)
+(setq ffip-limit 10240)
