@@ -1,3 +1,4 @@
+(require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
@@ -27,3 +28,7 @@
 (when (require 'yasnippet nil 'noerror)
   (progn
     (yas/load-directory "~/.emacs.d/snippets")))
+
+(custom-set-faces
+ '(minibuffer-prompt ((t (:foreground "#ffffff"))))
+)
