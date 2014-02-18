@@ -20,16 +20,13 @@
 (require 'auto-complete)
 (global-auto-complete-mode t)
 
-;; find file in project, like Command-T in TextMate
-(require 'find-file-in-project)
-(global-set-key (kbd "C-x p") 'find-file-in-project)
-(setq ffip-limit 10240)
+(global-set-key (kbd "C-x p") 'anything-git-goto)
 
-(load-theme 'monokai t)
+;; (load-theme 'monokai t)
 
 (when (require 'yasnippet nil 'noerror)
   (progn
-    (yas/load-directory "~/.emacs.d/snippets")))
+    (yas/load-direory "~/.emacs.d/snippets")))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -44,5 +41,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
- 
- (ido-mode)
+
+(ido-mode 1)
+(menu-bar-mode 0)
