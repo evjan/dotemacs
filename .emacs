@@ -23,7 +23,7 @@
 (require 'auto-complete)
 (global-auto-complete-mode t)
 
-(global-set-key (kbd "C-x p") 'anything-git-goto)
+(global-set-key (kbd "C-x p") 'helm-git-files)
 
 ;; (load-theme 'monokai t)
 
