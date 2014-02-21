@@ -21,7 +21,7 @@
 (global-set-key (kbd "C-x p") 'helm-git-files)
 (global-set-key (kbd "C-x t") 'helm-git-grep)
 (global-set-key (kbd "C-c a") 'rspec-verify-all)
-(global-set-key (kbd "C-c c") 'rspec-verify)
+(global-set-key (kbd "C-c s") 'rspec-verify)
 
 ;; (load-theme 'monokai t)
 
