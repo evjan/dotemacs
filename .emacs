@@ -2,7 +2,7 @@
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+         '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 ;; Create kbd macro to correct indentation in entire buffer
@@ -14,15 +14,14 @@
 (setq tab-width 4)
 (setq indent-tabs-mode nil)
 
-;; nice font scaling shortcuts
-(global-set-key (kbd "C-+") 'text-scale-increase)
-(global-set-key (kbd "C--") 'text-scale-decrease)
-
 ;; enable auto-complete-mode all the time
 (require 'auto-complete)
 (global-auto-complete-mode t)
 
 (global-set-key (kbd "C-x p") 'helm-git-files)
+(global-set-key (kbd "C-x t") 'helm-git-grep)
+(global-set-key (kbd "C-c a") 'rspec-verify-all)
+(global-set-key (kbd "C-c c") 'rspec-verify)
 
 ;; (load-theme 'monokai t)
 
