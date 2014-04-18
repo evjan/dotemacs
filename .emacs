@@ -2,7 +2,7 @@
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
-         '("melpa" . "http://melpa.milkbox.net/packages/") t)
+	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 ;; Create kbd macro to correct indentation in entire buffer
@@ -23,11 +23,17 @@
 (global-set-key (kbd "C-c a") 'rspec-verify-all)
 (global-set-key (kbd "C-c s") 'rspec-verify)
 
-;; (load-theme 'monokai t)
+(global-set-key (kbd "C-x w") 'mark-word)
+(global-set-key (kbd "C-x m") 'mc/mark-all-like-this)
+
+(add-to-list 'auto-mode-alist '("\\.ss\\'" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 
 (when (require 'yasnippet nil 'noerror)
   (progn
     (yas/load-direory "~/.emacs.d/snippets")))
+
+(load-theme 'monokai t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -75,3 +81,4 @@
     (shell-command (format "cd %s && ctags -e -R %s" project-directory project-directory))
     (let ((tags-revert-without-query t))  ; don't query, revert silently
       (visit-tags-table project-directory nil))))
+
