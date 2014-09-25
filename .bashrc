@@ -1,7 +1,7 @@
 # export PATH="~/bin:/usr/local/bin:$PATH"
 export PATH="~/bin:$PATH"
 #if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-export EDITOR='atom'
+export EDITOR='vim'
 
 source  /opt/boxen/env.sh
 
