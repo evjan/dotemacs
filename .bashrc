@@ -25,6 +25,8 @@ git config --global alias.s 'status'
 git config --global alias.st 'stash'
 git config --global alias.stp 'stash pop'
 
+export RSTUDIO_WHICH_R=/opt/boxen/homebrew/bin/R
+
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
