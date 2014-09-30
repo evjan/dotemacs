@@ -6,7 +6,7 @@ export EDITOR='vim'
 source  /opt/boxen/env.sh
 
 alias be='bundle exec'
-alias ll='ls -alF'
+alias ll='ls -alFh'
 
 git config --global alias.a 'add'
 git config --global alias.aa 'add --all .'
