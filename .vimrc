@@ -101,3 +101,7 @@ map <F7> mzgg=G`z<CR>
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set number
+let g:molokai_original = 1
+let g:rehash256 = 1
+
