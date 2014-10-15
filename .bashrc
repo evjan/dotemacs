@@ -31,3 +31,23 @@ export RSTUDIO_WHICH_R=/opt/boxen/homebrew/bin/R
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
+
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
+}
+function proml {
+  case $TERM in
+    xterm*)
+      TITLEBAR='\[\033]0;${PWD##*/}\007\]'
+      ;;
+    *)
+      TITLEBAR=''
+      ;;
+  esac
+  PS1="${TITLEBAR}\w \$(parse_git_branch)\$ "
+  PS2='> '
+  PS4='+ '
+}
+proml
+unset proml
+
