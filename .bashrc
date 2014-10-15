@@ -6,6 +6,7 @@ export EDITOR='mvim'
 source  /opt/boxen/env.sh
 
 alias be='bundle exec'
+alias ct='ctags -R *'
 alias ll='ls -alFh'
 
 git config --global alias.a 'add'
