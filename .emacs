@@ -2,16 +2,12 @@
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+	          '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
-
-;; Create kbd macro to correct indentation in entire buffer
-(fset 'indent-buffer
-   "\C-xh\234")
 
 ;; to setup tabs
 (setq c-basic-indent 2)
-(setq tab-width 4)
+(setq tab-width 2)
 (setq indent-tabs-mode nil)
 
 ;; enable auto-complete-mode all the time
@@ -20,37 +16,23 @@
 
 (global-set-key (kbd "C-x p") 'helm-git-files)
 (global-set-key (kbd "C-x t") 'helm-git-grep)
-(global-set-key (kbd "C-c a") 'rspec-verify-all)
-(global-set-key (kbd "C-c s") 'rspec-verify)
+;; (global-set-key (kbd "C-c a") 'rspec-verify-all)
+;; (global-set-key (kbd "C-c s") 'rspec-verify)
 
 (global-set-key (kbd "C-x w") 'mark-word)
-(global-set-key (kbd "C-x m") 'mc/mark-all-like-this)
+;; (global-set-key (kbd "C-x m") 'mc/mark-all-like-this)
 
-(add-to-list 'auto-mode-alist '("\\.ss\\'" . php-mode))
-(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
+;;(add-to-list 'auto-mode-alist '("\\.ss\\'" . php-mode))
+;;(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
+(add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
 
-(when (require 'yasnippet nil 'noerror)
-  (progn
-    (yas/load-direory "~/.emacs.d/snippets")))
-
-(load-theme 'monokai t)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("68769179097d800e415631967544f8b2001dae07972939446e21438b1010748c" default)))
- '(safe-local-variable-values (quote ((todo-categories "To do" "Todo") (todo-categories "Todo") (whitespace-line-column . 80) (lexical-binding . t)))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(setq auto-mode-alist (cons '("\\.html.erb$" . web-mode) auto-mode-alist))
+;;(load-theme 'monokai t)
 
 (ido-mode 1)
 (menu-bar-mode 0)
+(hl-line-mode 1)
+(setq scss-compile-at-save nil)
 
 ;;;  This is my re-rwrite of Jonas Jarnestrom's refreshing logic
 ;;;  that puts the TAGS file in the git project root directory
@@ -81,4 +63,3 @@
     (shell-command (format "cd %s && ctags -e -R %s" project-directory project-directory))
     (let ((tags-revert-without-query t))  ; don't query, revert silently
       (visit-tags-table project-directory nil))))
-
