@@ -1,13 +1,25 @@
 # export PATH="~/bin:/usr/local/bin:$PATH"
-export PATH="~/bin:$PATH"
+export PATH="~/bin:~/bin/activator-1.2.10-minimal/:$PATH"
 #if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-export EDITOR='mvim'
+export EDITOR='emacs'
 
 source  /opt/boxen/env.sh
 
 alias be='bundle exec'
+alias bfs='bundle exec foreman s'
 alias ct='ctags -R *'
 alias ll='ls -alFh'
+alias vicl='find . -name *.*~ -ok rm {} \;'
+
+alias ebe='bundle exec rake workers:export_queue RAILS_ENV=development FILE=~/errors.json QUEUE=background_workers_errors'
+alias ee='vim ~/errors.json'
+alias efe='bundle exec rake workers:export_queue RAILS_ENV=development FILE=~/errors.json QUEUE=fulfillment_workers_errors'
+alias ete='bundle exec rake workers:export_queue RAILS_ENV=development FILE=~/errors.json QUEUE=transfer_workers_errors'
+alias ie='bundle exec rake workers:import_queue RAILS_ENV=development  FILE=~/errors.json'
+alias lq='rabbitmqctl -n rabbit@localhost list_queues'
+alias lqe='rabbitmqctl -n rabbit@localhost list_queues | grep errors'
+alias rme='rm -v ~/errors.json'
+alias wq='watch --interval 1 rabbitmqctl -n rabbit@localhost list_queues'
 
 git config --global alias.a 'add'
 git config --global alias.aa 'add --all .'
@@ -51,3 +63,4 @@ function proml {
 proml
 unset proml
 
+set -o noclobber # Don't allow overwriting existing files unless you're using the >|
