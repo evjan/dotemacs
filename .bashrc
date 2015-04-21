@@ -1,13 +1,13 @@
 # export PATH="~/bin:/usr/local/bin:$PATH"
-export PATH="~/bin:$PATH"
+export PATH="~/bin:~/:$PATH"
 #if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-export EDITOR='mvim'
-
-source  /opt/boxen/env.sh
+export EDITOR='emacs'
 
 alias be='bundle exec'
+alias bfs='bundle exec foreman s'
 alias ct='ctags -R *'
 alias ll='ls -alFh'
+alias vicl='find . -name *.*~ -ok rm {} \;'
 
 git config --global alias.a 'add'
 git config --global alias.aa 'add --all .'
@@ -25,12 +25,6 @@ git config --global alias.rh 'reset HEAD'
 git config --global alias.s 'status'
 git config --global alias.st 'stash'
 git config --global alias.stp 'stash pop'
-
-export RSTUDIO_WHICH_R=/opt/boxen/homebrew/bin/R
-
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
 
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
@@ -51,3 +45,4 @@ function proml {
 proml
 unset proml
 
+set -o noclobber # Don't allow overwriting existing files unless you're using the >|

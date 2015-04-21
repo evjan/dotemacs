@@ -2,7 +2,7 @@
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
-	          '("melpa" . "http://melpa.milkbox.net/packages/") t)
+	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 ;; to setup tabs
@@ -27,12 +27,8 @@
 (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
 
 (setq auto-mode-alist (cons '("\\.html.erb$" . web-mode) auto-mode-alist))
-;;(load-theme 'monokai t)
-
-(ido-mode 1)
-(menu-bar-mode 0)
-(hl-line-mode 1)
-(setq scss-compile-at-save nil)
+;; (load-theme 'monokai t)
+(require 'tronesque-theme)
 
 ;;;  This is my re-rwrite of Jonas Jarnestrom's refreshing logic
 ;;;  that puts the TAGS file in the git project root directory
@@ -63,3 +59,9 @@
     (shell-command (format "cd %s && ctags -e -R %s" project-directory project-directory))
     (let ((tags-revert-without-query t))  ; don't query, revert silently
       (visit-tags-table project-directory nil))))
+
+(ido-mode 1)
+;; (menu-bar-mode 0)
+(setq scss-compile-at-save nil)
+(ns-toggle-toolbar)
+(set-default-font "Menlo-16")
