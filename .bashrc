@@ -1,5 +1,5 @@
 # export PATH="~/bin:/usr/local/bin:$PATH"
-export PATH="~/bin:~/:$PATH"
+export PATH="~/bin:$PATH"
 #if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export EDITOR='emacs'
 
@@ -7,7 +7,6 @@ alias be='bundle exec'
 alias bfs='bundle exec foreman s'
 alias ct='ctags -R *'
 alias ll='ls -alFh'
-alias vicl='find . -name *.*~ -ok rm {} \;'
 
 git config --global alias.a 'add'
 git config --global alias.aa 'add --all .'
@@ -46,3 +45,5 @@ proml
 unset proml
 
 set -o noclobber # Don't allow overwriting existing files unless you're using the >|
+
+. ~/.bash_env_specific
