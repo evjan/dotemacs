@@ -46,4 +46,7 @@ unset proml
 
 set -o noclobber # Don't allow overwriting existing files unless you're using the >|
 
-. ~/.bash_env_specific
+if [ -a ~/.bash_env_specific ]
+  then
+    . ~/.bash_env_specific
+fi

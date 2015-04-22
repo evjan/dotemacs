@@ -1,6 +1,6 @@
 #! /bin/sh
 
-set -euo pipefail
+set -eu
 
 cp .bashrc ~/
 cp .bash_profile ~/
