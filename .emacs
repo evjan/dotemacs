@@ -14,8 +14,7 @@
 (require 'auto-complete)
 (global-auto-complete-mode t)
 
-(global-set-key (kbd "C-x p") 'helm-git-files)
-(global-set-key (kbd "C-x t") 'helm-git-grep)
+(global-set-key (kbd "C-c f") 'ffap)
 ;; (global-set-key (kbd "C-c a") 'rspec-verify-all)
 ;; (global-set-key (kbd "C-c s") 'rspec-verify)
 
@@ -27,8 +26,6 @@
 (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
 
 (setq auto-mode-alist (cons '("\\.html.erb$" . web-mode) auto-mode-alist))
-;; (load-theme 'monokai t)
-(require 'tronesque-theme)
 
 ;;;  This is my re-rwrite of Jonas Jarnestrom's refreshing logic
 ;;;  that puts the TAGS file in the git project root directory
@@ -61,7 +58,6 @@
       (visit-tags-table project-directory nil))))
 
 (ido-mode 1)
-;; (menu-bar-mode 0)
+(menu-bar-mode 0)
 (setq scss-compile-at-save nil)
-(ns-toggle-toolbar)
 (set-default-font "Menlo-16")
